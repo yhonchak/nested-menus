@@ -7,7 +7,7 @@ const menu: MenuItem[] = [
   {
     title: 'Home',
     icon: 'bi-house',
-    route: '/home',
+    route: '/',
     children: []
   },
   {
