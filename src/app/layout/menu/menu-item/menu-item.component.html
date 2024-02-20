@@ -1,10 +1,26 @@
-<a class="nav-link dropdown-toggle"
-   href="#"
-   data-toggle="dropdown"
->
-  <i class="bi bi-bell"></i> Dropdown
-</a>
-<div class="dropdown-menu">
-  <a class="dropdown-item" href="#"><i class="bi bi-house"></i> Action</a>
-  <a class="dropdown-item" href="#"><i class="bi bi-house"></i> Another action</a>
-</div>
+@if (item.children.length > 0) {
+  <a class="nav-link dropdown-toggle"
+     data-toggle="dropdown"
+     href="#"
+  >
+    <i class="bi {{item.icon}}"></i> {{item.title}}
+  </a>
+  <div class="dropdown-menu">
+    @for (itemChild of item.children; track itemChild) {
+      <a class="dropdown-item"
+         href="#"
+         [routerLink]="[itemChild.route]"
+      >
+        <i class="bi {{itemChild.icon}}"></i> {{itemChild.title}}
+      </a>
+    }
+  </div>
+} @else {
+  <a class="nav-link"
+     href="#"
+     [routerLink]="[item.route]"
+  >
+    <i class="bi {{item.icon}}"></i> {{item.title}}
+  </a>
+}
+

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 export interface MenuItem {
   title: string;
@@ -10,10 +12,10 @@ export interface MenuItem {
 @Component({
   selector: 'app-menu-item',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLink],
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.scss'
 })
 export class MenuItemComponent {
-
+  @Input({required: true}) item!: MenuItem;
 }

@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { MenuComponent } from './layout/menu/menu.component';
 import { MenuItem } from './layout/menu/menu-item/menu-item.component';
 
-const menu: MenuItem[] = [
+const MENU: MenuItem[] = [
   {
     title: 'Home',
     icon: 'bi-house',
@@ -51,4 +51,11 @@ const menu: MenuItem[] = [
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
+  /**
+   * Returns menu items from the constant.
+   */
+  get menuItems(): MenuItem[] {
+    return MENU;
+  }
 }
