@@ -26,9 +26,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       @for (item of menuItems; track item) {
-        <li class="nav-item" [ngClass]="{ 'dropdown': item.children.length > 0 }">
-          <app-menu-item [item]="item"></app-menu-item>
-        </li>
+        <app-menu-item [item]="item"></app-menu-item>
       }
   </ul>
   </div>
