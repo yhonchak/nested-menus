@@ -5,16 +5,30 @@
   >
     <i class="bi {{item.icon}}"></i> {{item.title}}
   </a>
-  <div class="dropdown-menu">
-    @for (itemChild of item.children; track itemChild) {
-      <a class="dropdown-item"
-         href="#"
-         [routerLink]="[itemChild.route]"
-      >
-        <i class="bi {{itemChild.icon}}"></i> {{itemChild.title}}
-      </a>
+  <ng-template #recursiveMenu let-items>
+    <div class="dropdown-menu">
+    @for (itemChild of items; track itemChild) {
+      @if (itemChild.children.length > 0) {
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item dropdown-toggle"
+           href="#"
+           data-toggle="dropdown"
+        >
+          <i class="bi {{itemChild.icon}}"></i> {{itemChild.title}}
+        </a>
+        <ng-container *ngTemplateOutlet="recursiveMenu; context:{ $implicit: itemChild.children }"></ng-container>
+      } @else {
+        <a class="dropdown-item"
+           href="#"
+           [routerLink]="[itemChild.route]"
+        >
+          <i class="bi {{itemChild.icon}}"></i> {{itemChild.title}}
+        </a>
+      }
     }
-  </div>
+    </div>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="recursiveMenu; context:{ $implicit: item.children }"></ng-container>
 } @else {
   <a class="nav-link"
      href="#"
