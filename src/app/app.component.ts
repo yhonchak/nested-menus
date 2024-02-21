@@ -22,36 +22,36 @@ const MENU: MenuItem[] = [
     route: '',
     children: [
       {
-        title: '1st Screen',
+        title: 'Screen 1',
         icon: 'bi-collection-fill',
         route: '/first-group',
         children: []
       },
       {
-        title: '2nd Screen',
+        title: 'Screen 2',
         icon: 'bi-collection-play',
         route: '/second-group',
         children: []
       },
       {
-        title: '3rd Level Group',
+        title: '2nd Level Group',
         icon: 'bi-list-nested',
         route: '',
         children: [
           {
-            title: '3rd Level Screen',
-            icon: 'bi-3-circle',
+            title: '2nd Level Screen',
+            icon: 'bi-2-circle',
             route: '/link',
             children: []
           },
           {
-            title: '4th Level Group',
-            icon: 'bi-4-circle',
+            title: '3rd Level Group',
+            icon: 'bi-3-circle',
             route: '',
             children: [
               {
-                title: '4th Level Screen',
-                icon: 'bi-4-square',
+                title: '3rd Level Screen',
+                icon: 'bi-3-square',
                 route: '/notifications',
                 children: []
               }
